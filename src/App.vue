@@ -1,13 +1,19 @@
 <template>
-  <div id="app">
+  <div class="hello">
     <img src="./assets/logo.png">
-    <router-view/>
+    <br />
+    <h1>{{ msg }}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'hello',
+  data(){
+    return {
+      msg: "Welcome to the Beginner CLub!"
+    }
+  }
 }
 </script>
 
