@@ -10,9 +10,9 @@
 <script>
 export default {
   name: 'hello',
-  data(){
+  data () {
     return {
-      msg: "Welcome to the Beginner CLub!"
+      msg: 'Welcome to the Beginner CLub!'
     }
   }
 }
