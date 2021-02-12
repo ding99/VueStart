@@ -1,11 +1,8 @@
-<div id="subpage">
-    <div v-html="message"></div>
-</div>
 <script>
 new Vue ({
   el: "#subpage",
   data: {
-      message: ' runboo tutorials '
+      message: '<h2>Hello, Runboo Tutorials!</h2>',
   }  
 })
 </script>
