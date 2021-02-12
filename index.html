@@ -8,6 +8,9 @@
   </head>
   <body>
     <div id="app"></div>
+    <div id="subpage">
+      <p>{{ message }}</p>
+    </div>
     <br/>
     <div id="vue_det">
       <h2>site : {{site}}</h2>
@@ -28,7 +31,7 @@
       document.write(data.site + "<br>")
 
       data.alexa = 1234
-      document.write(vm.alexa)
+      document.write("<h2>" + vm.alexa + "</h2>")
 
       data.alexa *= 2
       data.site += " changed!"
