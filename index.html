@@ -4,9 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>vuestart</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
   </head>
   <body>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <div id="vue_det">
+      <h2>site : {{site}}</h2>
+      <h2>url : {{url}}</h2>
+      <p>{{details()}}</p>
+    </div>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: '#vue_det',
+        data: {
+          site: "tutorials",
+          url: "www.runboo",
+          alexa: "10000"
+        },
+        methods: {
+          details: function() {
+            return this.site + " my dream!";
+          }
+        }
+      })
+    </script>
   </body>
 </html>
