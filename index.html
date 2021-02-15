@@ -7,38 +7,26 @@
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
   </head>
   <style>
-    .class1{
-      background: #444;
-      color: #eee;
-    }
+    .class1{ background: #444; color: rgba(248, 244, 3, 0.89); }
   </style>
   <body>
     <div id="app"></div>
+    
     <div id="subpage">
       <p>{{ message }}</p>
       <div v-html="message"></div>
     </div>
-    <br>
-    <div id="v-test">
-      <h2>Examing v-bind</h2>
-      <label for="r1">change color</label>
-      <input type="checkbox" v-model="use" id="r1">
-      <br><br>
-      <div v-bind:class="{'class1': use}">v-bind:class directive</div>
-    </div>
+    
     <br/>
     <div id="vue_det">
-      <h2>site : {{site}}</h2>
-      <h2>url : {{url}}</h2>
+      <h3>site : {{site}}</h3>
+      <h3>url : {{url}}</h3>
       <h3>alexa: {{alexa}}</h3>
     </div>
 
     <script type="text/javascript">
       var data ={ site: "tutorials", url: "www.tutorials.com", alexa: 1000}
-      var vm = new Vue({
-        el: '#vue_det',
-        data: data
-      })
+      var vm = new Vue({ el: '#vue_det', data: data })
 
       document.write(vm.site == data.site)
       document.write("<br>")
@@ -47,19 +35,33 @@
       document.write(data.site + "<br>")
 
       data.alexa = 1234
-      document.write("<h2>" + vm.alexa + "</h2>")
+      document.write("<h3>" + vm.alexa + "</h>")
 
       data.alexa *= 2
       data.site += " changed!"
-      </script>
+    </script>
 
-      <script>
-        new Vue({
-          el: '#v-test',
-          data:{
-            use: false
-          }
-        });
-      </script>
+    <br>
+    <div id="v-test">
+      <h2>Examing v-bind</h2>
+      <label for="r1">change color</label>
+      <input type="checkbox" v-model="use" id="r1">
+      <br>
+      <div v-bind:class="{'class1': use}">v-bind:class directive</div>
+    </div>
+
+    <div id="expression">
+      {{ 5+5 }}<br>
+      {{ ok ? 'YES' : 'NO' }}<br>
+      {{ message.split('').reverse().join('') }}
+      <div v-bind:id="'list-' + id">Introductory Tutorial</div>
+    </div>
+    <div id="directive"><p v-if="seen">Now you saw me</p></div>
+    <script> new Vue({ el: '#directive', data: { seen: true } })</script>
+    <script>
+      new Vue({el: '#expression', data: {ok: true, message: 'Beginner', id: 1 }});
+    </script>
+
+    <script> new Vue({ el: '#v-test', data:{ use: false } }); </script>
   </body>
 </html>
