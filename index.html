@@ -57,6 +57,8 @@
       <div v-bind:id="'list-' + id">Introductory Tutorial</div>
     </div>
     <div id="directive"><p v-if="seen">Now you saw me</p></div>
+    <div id="parameter"><pre><a v-bind:href="url">Entering</a></pre></div>
+    <script>new Vue({ el: '#parameter', data: { url: 'http://nikkei.com' } })</script>
     <script> new Vue({ el: '#directive', data: { seen: true } })</script>
     <script>
       new Vue({el: '#expression', data: {ok: true, message: 'Beginner', id: 1 }});
