@@ -56,6 +56,8 @@
       {{ message.split('').reverse().join('') }}
       <div v-bind:id="'list-' + id">Introductory Tutorial</div>
     </div>
+    <div id="directive"><p v-if="seen">Now you saw me</p></div>
+    <script> new Vue({ el: '#directive', data: { seen: true } })</script>
     <script>
       new Vue({el: '#expression', data: {ok: true, message: 'Beginner', id: 1 }});
     </script>
