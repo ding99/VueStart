@@ -9,23 +9,17 @@
   <style>
     .class1{
       background: #444;
-      color: #eee;
+      color: rgba(248, 244, 3, 0.89);
     }
   </style>
   <body>
     <div id="app"></div>
+    
     <div id="subpage">
       <p>{{ message }}</p>
       <div v-html="message"></div>
     </div>
-    <br>
-    <div id="v-test">
-      <h2>Examing v-bind</h2>
-      <label for="r1">change color</label>
-      <input type="checkbox" v-model="use" id="r1">
-      <br><br>
-      <div v-bind:class="{'class1': use}">v-bind:class directive</div>
-    </div>
+    
     <br/>
     <div id="vue_det">
       <h2>site : {{site}}</h2>
@@ -51,15 +45,24 @@
 
       data.alexa *= 2
       data.site += " changed!"
-      </script>
+    </script>
 
-      <script>
-        new Vue({
-          el: '#v-test',
-          data:{
-            use: false
-          }
-        });
-      </script>
+    <br>
+    <div id="v-test">
+      <h2>Examing v-bind</h2>
+      <label for="r1">change color</label>
+      <input type="checkbox" v-model="use" id="r1">
+      <br>
+      <div v-bind:class="{'class1': use}">v-bind:class directive</div>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#v-test',
+        data:{
+          use: false
+        }
+      });
+    </script>
   </body>
 </html>
