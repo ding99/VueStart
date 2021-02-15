@@ -1,8 +1,7 @@
 <template>
   <div class="hello">
     <img src="./assets/logo.png">
-    <br />
-    <h1>{{ msg }}</h1>
+    <h2>{{ msg }}</h2>
     <!-- <router-view /> -->
   </div>
 </template>
