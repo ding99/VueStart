@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'hello',
+  name: '#hello',
   data () {
     return {
       msg: 'Welcome to the Beginner CLub!'
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style>
-#app {
+#apptop {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

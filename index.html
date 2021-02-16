@@ -11,8 +11,15 @@
     .class1{ background: #444; color: rgba(248, 244, 3, 0.89); }
   </style>
   <body>
+    <!-- TODO: issue no logo -->
     <div id="app"></div>
-    <div id="routes">
+
+    <div id="subpage">
+      <p>{{ message }}</p>
+      <div v-html="message"></div>
+    </div>
+    
+    <div id="routes1">
       <p>
         <router-link to="/foo">Go to Foo</router-link>
         <router-link to="/bar">Go to Bar</router-link>
@@ -20,11 +27,6 @@
       <router-view></router-view>
     </div>
 
-    <div id="subpage">
-      <p>{{ message }}</p>
-      <div v-html="message"></div>
-    </div>
-    
     <div id="vue_det">
       <h3>site : {{site}}</h3>
       <h3>alexa: {{alexa}}</h3>
@@ -77,7 +79,7 @@
       //3. create instance of routes
       const router = new VueRouter({routes})
       //4. create and hook instance
-      const app = new Vue({router}).$mount('#routes')
+      const app1 = new Vue({router}).$mount('#routes1')
     </script>
 
     <script>var vm = new Vue({el:'#compute',data:{msg:'Computing'},computed:{reversedMsg:function(){return this.msg.split('').reverse().join('')}}})</script>
