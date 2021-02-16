@@ -2,7 +2,6 @@
   <div class="hello">
     <img src="./assets/logo.png">
     <h2>{{ msg }}</h2>
-    <!-- <router-view /> -->
   </div>
 </template>
 
