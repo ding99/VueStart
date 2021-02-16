@@ -55,7 +55,9 @@
     <div id="vmodel"><p>{{message}}</p><input v-model="message"></div>
     <div id="reverse"><p>{{msg}}</p><button v-on:click="reverseMsg">Inverse String</button></div>
     <div id="filter">{{msg|capi}}</div>
-    
+    <div id="compute"><p>Original: {{msg}}</p><p>Reserved: {{reversedMsg}}</p></div>
+
+    <script>var vm = new Vue({el:'#compute',data:{msg:'Computing'},computed:{reversedMsg:function(){return this.msg.split('').reverse().join('')}}})</script>
     <script>new Vue({el:'#filter',data:{msg:'modify'},filters:{capi:function(value){
       if(!value) return ''
       value = value.toString()
