@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: '#hello',
+  name: 'hello',
   data () {
     return {
       msg: 'Welcome to the Beginner CLub!'
