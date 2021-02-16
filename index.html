@@ -5,18 +5,28 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>vuestart</title>
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue-router/2.7.0/vue-router.min.js"></script>
   </head>
   <style>
     .class1{ background: #444; color: rgba(248, 244, 3, 0.89); }
   </style>
   <body>
+    <!-- TODO: issue no logo -->
     <div id="app"></div>
-    
+
     <div id="subpage">
       <p>{{ message }}</p>
       <div v-html="message"></div>
     </div>
     
+    <div id="routes1">
+      <p>
+        <router-link to="/foo">Go to Foo</router-link>
+        <router-link to="/bar">Go to Bar</router-link>
+      </p>
+      <router-view></router-view>
+    </div>
+
     <div id="vue_det">
       <h3>site : {{site}}</h3>
       <h3>alexa: {{alexa}}</h3>
@@ -56,6 +66,21 @@
     <div id="reverse"><p>{{msg}}</p><button v-on:click="reverseMsg">Inverse String</button></div>
     <div id="filter">{{msg|capi}}</div>
     <div id="compute"><p>Original: {{msg}}</p><p>Reserved: {{reversedMsg}}</p></div>
+
+    <script>
+      //1. define components
+      const Foo = { template: '<div>foo</div>'}
+      const Bar = { template: '<div>bar</div>'}
+      //2. define routes
+      const routes =[
+        { path: '/foo', component: Foo },
+        { path: '/bar', component: Bar }
+      ]
+      //3. create instance of routes
+      const router = new VueRouter({routes})
+      //4. create and hook instance
+      const app1 = new Vue({router}).$mount('#routes1')
+    </script>
 
     <script>var vm = new Vue({el:'#compute',data:{msg:'Computing'},computed:{reversedMsg:function(){return this.msg.split('').reverse().join('')}}})</script>
     <script>new Vue({el:'#filter',data:{msg:'modify'},filters:{capi:function(value){
