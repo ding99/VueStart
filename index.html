@@ -54,7 +54,13 @@
     <div id="parameter"><pre><a v-bind:href="url">Entering</a></pre></div>
     <div id="vmodel"><p>{{message}}</p><input v-model="message"></div>
     <div id="reverse"><p>{{msg}}</p><button v-on:click="reverseMsg">Inverse String</button></div>
-
+    <div id="filter">{{msg|capi}}</div>
+    
+    <script>new Vue({el:'#filter',data:{msg:'modify'},filters:{capi:function(value){
+      if(!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }}})</script>
     <script>new Vue({el:'#reverse',data:{msg:'Try'},methods:{reverseMsg:function(){this.msg=this.msg.split('').reverse().join('')}}})</script>
     <script>new Vue({el:'#vmodel',data:{message:'Beginning'}})</script>
     <script>new Vue({el:'#parameter',data:{url:'http://nikkei.com'}})</script>
