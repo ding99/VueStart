@@ -52,6 +52,9 @@
     </div>
     <div id="directive"><p v-if="seen">Now you saw me</p></div>
     <div id="parameter"><pre><a v-bind:href="url">Entering</a></pre></div>
+    <div id="vmodel"><p>{{message}}</p><input v-model="message"></div>
+
+    <script>new Vue({el:'#vmodel',data:{message:'Beginning'}}) </script>
     <script>new Vue({ el: '#parameter', data: { url: 'http://nikkei.com' } })</script>
     <script> new Vue({ el: '#directive', data: { seen: true } })</script>
     <script>
