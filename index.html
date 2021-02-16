@@ -17,10 +17,8 @@
       <div v-html="message"></div>
     </div>
     
-    <br/>
     <div id="vue_det">
       <h3>site : {{site}}</h3>
-      <h3>url : {{url}}</h3>
       <h3>alexa: {{alexa}}</h3>
     </div>
 
@@ -29,24 +27,20 @@
       var vm = new Vue({ el: '#vue_det', data: data })
 
       document.write(vm.site == data.site)
-      document.write("<br>")
-
+      document.write(", ")
       vm.site = "newpage"
-      document.write(data.site + "<br>")
+      document.write(data.site)
 
       data.alexa = 1234
-      document.write("<h3>" + vm.alexa + "</h>")
+      document.write("<p>" + vm.alexa + "</p>")
 
       data.alexa *= 2
       data.site += " changed!"
     </script>
 
-    <br>
     <div id="v-test">
       <h2>Examing v-bind</h2>
-      <label for="r1">change color</label>
-      <input type="checkbox" v-model="use" id="r1">
-      <br>
+      <label for="r1">change color</label><input type="checkbox" v-model="use" id="r1"><br>
       <div v-bind:class="{'class1': use}">v-bind:class directive</div>
     </div>
 
@@ -58,12 +52,20 @@
     </div>
     <div id="directive"><p v-if="seen">Now you saw me</p></div>
     <div id="parameter"><pre><a v-bind:href="url">Entering</a></pre></div>
-    <script>new Vue({ el: '#parameter', data: { url: 'http://nikkei.com' } })</script>
-    <script> new Vue({ el: '#directive', data: { seen: true } })</script>
-    <script>
-      new Vue({el: '#expression', data: {ok: true, message: 'Beginner', id: 1 }});
-    </script>
-
-    <script> new Vue({ el: '#v-test', data:{ use: false } }); </script>
+    <div id="vmodel"><p>{{message}}</p><input v-model="message"></div>
+    <div id="reverse"><p>{{msg}}</p><button v-on:click="reverseMsg">Inverse String</button></div>
+    <div id="filter">{{msg|capi}}</div>
+    
+    <script>new Vue({el:'#filter',data:{msg:'modify'},filters:{capi:function(value){
+      if(!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }}})</script>
+    <script>new Vue({el:'#reverse',data:{msg:'Try'},methods:{reverseMsg:function(){this.msg=this.msg.split('').reverse().join('')}}})</script>
+    <script>new Vue({el:'#vmodel',data:{message:'Beginning'}})</script>
+    <script>new Vue({el:'#parameter',data:{url:'http://nikkei.com'}})</script>
+    <script>new Vue({el:'#directive',data:{seen:true}})</script>
+    <script>new Vue({el:'#expression',data:{ok:true,message:'Beginner',id:1}});</script>
+    <script>new Vue({el:'#v-test',data:{use:false}});</script>
   </body>
 </html>
